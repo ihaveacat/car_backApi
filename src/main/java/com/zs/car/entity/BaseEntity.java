@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class BaseEntity {
 
-    Integer id;
+    Long id;
 
     String createUser;
 
@@ -14,11 +14,11 @@ public class BaseEntity {
 
     Date updateTime;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

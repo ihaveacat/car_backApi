@@ -1,9 +1,9 @@
 package com.zs.car.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.zs.car.entity.User;
 
-public interface UserService extends IService<User> {
+import java.util.Map;
 
-    public User findUserById(Integer id);
+public interface UserService{
+
+    public Map<String, Object> findUserById(Long id);
 }

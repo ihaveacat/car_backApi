@@ -1,16 +1,22 @@
 package com.zs.car.service.impl;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.zs.car.entity.User;
-import com.zs.car.mapper.UserMapper;
 import com.zs.car.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @Override
-    public User findUserById(Integer id) {
-        return null;
+    public Map<String, Object> findUserById(Long id) {
+        Map<String, Object> map
+                = jdbcTemplate.queryForMap("select * from user where id=?", id);
+        return map;
     }
 }

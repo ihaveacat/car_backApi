@@ -1,9 +1,5 @@
 package com.zs.car.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
-
-@TableName("user")
 public class User extends BaseEntity{
 
     private String username;
@@ -13,10 +9,6 @@ public class User extends BaseEntity{
     private String tel;
 
     private Integer level;
-
-    //表示当前字段不在表中
-    @TableField(exist = false)
-    private String column;
 
     public String getUsername() {
         return username;
@@ -57,7 +49,6 @@ public class User extends BaseEntity{
                 ", password='" + password + '\'' +
                 ", tel='" + tel + '\'' +
                 ", level=" + level +
-                ", column='" + column + '\'' +
                 ", id=" + id +
                 ", createUser='" + createUser + '\'' +
                 ", createTime=" + createTime +
