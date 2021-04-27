@@ -4,7 +4,7 @@ server:
   tomcat:
     uri-encoding: UTF-8
     threads:
-      max: 30
+      max: 50
 #dataSource
 spring:
   datasource:
