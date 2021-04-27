@@ -1,0 +1,51 @@
+#server
+server:
+  port: 9999
+  tomcat:
+    uri-encoding: UTF-8
+    threads:
+      max: 30
+#dataSource
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/car?zeroDateTimeBehavior=convertToNull
+    #设置使用druid连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    maxActive: 20
+    #github.com/alibaba/druid/tree/master/druid-spring-boot-starter
+    druid:
+      #过滤器，开启sql监控和防火墙监控
+      filters: stat,wall
+      filter:
+        stat:
+          #慢查询
+          slow-sql-millis: 1000
+          log-slow-sql: true
+      #配置druid监控页 http://localhost:9999/druid/login.html
+      stat-view-servlet:
+        enabled: true
+        login-username: admin
+        login-password: admin
+        reset-enable: false
+      #监控web应用
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+      #监控spring组件
+      aop-patterns: com.zs.car.*
+  #应用服务器名称
+  application:
+    name: car
+  jackson:
+    #配置json的全局时间格式和时区
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+#mybatisPlus配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
