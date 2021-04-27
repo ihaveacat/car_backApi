@@ -1,7 +1,7 @@
 package com.zs.car.controller;
 
-import com.zs.car.entity.User;
-import com.zs.car.service.UserService;
+import com.zs.car.entity.SysUser;
+import com.zs.car.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +10,10 @@ import java.util.Map;
 @CrossOrigin
 @RestController
 @RequestMapping("users")
-public class UserController {
+public class SysUserController {
 
     @Autowired
-    private UserService userService;
+    private SysUserService userService;
 
     /**
      *
@@ -21,7 +21,7 @@ public class UserController {
      * @return
      */
     @RequestMapping("getUserById")
-    public Map<String, Object> getUserById(@RequestBody User user) {
-        return userService.findUserById(user.getId());
+    public SysUser getUserById(@RequestBody SysUser sysUser) {
+        return userService.findUserById(sysUser.getId());
     }
 }

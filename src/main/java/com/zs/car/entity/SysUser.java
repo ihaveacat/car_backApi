@@ -1,6 +1,9 @@
 package com.zs.car.entity;
 
-public class User extends BaseEntity{
+import com.baomidou.mybatisplus.annotation.TableName;
+
+@TableName("sys_user")
+public class SysUser extends BaseEntity{
 
     private String username;
 
