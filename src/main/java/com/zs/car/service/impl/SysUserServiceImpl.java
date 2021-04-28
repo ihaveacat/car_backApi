@@ -12,6 +12,5 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Override
     public SysUser findUserById(Long id) {
         return baseMapper.findUserById(id);
-//        return baseMapper.selectById(id);
     }
 }

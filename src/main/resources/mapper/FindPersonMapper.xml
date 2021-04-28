@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zs.car.mapper.FindPersonMapper">
+
+    <select id="pageFindPersonList" resultType="com.zs.car.entity.FindPerson">
+        select fpi.id, fpi.user_id, fpi.start_point, fpi.the_way, fpi.end_point, fpi.start_time,
+            su.username, su.tel,
+            ci.car_color, ci.car_num, ci.full_seat
+        from find_person_info fpi left join sys_user su
+        on fpi.user_id = su.id left join car_info ci
+        on fpi.car_id = ci.id
+        order by create_time desc
+        limit ${page},${limit}
+    </select>
+</mapper>
