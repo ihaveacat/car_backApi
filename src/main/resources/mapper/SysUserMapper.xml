@@ -3,6 +3,6 @@
 <mapper namespace="com.zs.car.mapper.SysUserMapper">
 
     <select id="findUserById" resultType="com.zs.car.entity.SysUser">
-        select * from sys_user where id = #{id}
+        select id, username from sys_user where id = #{id}
     </select>
 </mapper>
