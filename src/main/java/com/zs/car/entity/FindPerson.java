@@ -98,11 +98,7 @@ public class FindPerson extends BaseEntity {
                 ", theWay='" + theWay + '\'' +
                 ", endPoint='" + endPoint + '\'' +
                 ", startTime=" + startTime +
-                ", id=" + id +
-                ", createUser='" + createUser + '\'' +
-                ", createTime=" + createTime +
-                ", updateUser='" + updateUser + '\'' +
-                ", updateTime=" + updateTime +
+                ", id=" + super.getId() +
                 '}';
     }
 }

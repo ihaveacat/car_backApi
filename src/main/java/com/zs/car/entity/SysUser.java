@@ -53,11 +53,7 @@ public class SysUser extends BaseEntity {
                 ", password='" + password + '\'' +
                 ", tel='" + tel + '\'' +
                 ", level=" + level +
-                ", id=" + id +
-                ", createUser='" + createUser + '\'' +
-                ", createTime=" + createTime +
-                ", updateUser='" + updateUser + '\'' +
-                ", updateTime=" + updateTime +
+                ", id=" + super.getId() +
                 '}';
     }
 }
