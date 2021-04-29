@@ -44,6 +44,9 @@ spring:
     #配置json的全局时间格式和时区
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  #配置开发dev/生产pro/测试环境test
+  profiles:
+    active: dev
 #mybatisPlus配置
 mybatis-plus:
   configuration:

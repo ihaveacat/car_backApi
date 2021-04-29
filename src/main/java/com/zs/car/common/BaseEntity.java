@@ -1,22 +1,35 @@
-package com.zs.car.entity;
+package com.zs.car.common;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class BaseEntity {
+/**
+ * 实体基类
+ */
+public class BaseEntity implements Serializable {
 
-    @TableId(type = IdType.AUTO)
-    Long id;
+    private static final long serialVersionUID=1L;
 
-    String createUser;
+    //id自增策略
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
 
-    Date createTime;
+    private String createUser;
 
-    String updateUser;
+    //设置自动填充策略（插入时自动填充）
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
 
-    Date updateTime;
+    private String updateUser;
+
+    //设置自动填充策略（更新时自动填充）
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
 
     public Long getId() {
         return id;

@@ -1,11 +1,12 @@
 package com.zs.car.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.zs.car.common.BaseEntity;
 
 import java.util.Date;
 
 @TableName("find_person_info")
-public class FindPerson extends BaseEntity{
+public class FindPerson extends BaseEntity {
 
     private Long userId;
 
