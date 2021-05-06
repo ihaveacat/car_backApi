@@ -9,7 +9,7 @@
         from find_person_info fpi left join sys_user su
         on fpi.user_id = su.id left join car_info ci
         on fpi.car_id = ci.id
-        order by create_time desc
+        order by fpi.create_time desc
         limit ${page},${limit}
     </select>
 </mapper>

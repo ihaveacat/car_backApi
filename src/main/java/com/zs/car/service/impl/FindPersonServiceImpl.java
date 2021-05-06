@@ -5,10 +5,12 @@ import com.zs.car.entity.FindPerson;
 import com.zs.car.mapper.FindPersonMapper;
 import com.zs.car.service.FindPersonService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class FindPersonServiceImpl extends ServiceImpl<FindPersonMapper, FindPerson> implements FindPersonService {
     @Override
     public List<FindPerson> pageFindPersonList(Integer page, Integer limit) {
