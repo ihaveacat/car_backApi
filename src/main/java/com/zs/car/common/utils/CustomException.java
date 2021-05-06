@@ -1,4 +1,4 @@
-package com.zs.car.utils;
+package com.zs.car.common.utils;
 
 /**
  * 自定义运行时异常

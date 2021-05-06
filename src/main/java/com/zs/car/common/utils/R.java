@@ -1,4 +1,4 @@
-package com.zs.car.utils;
+package com.zs.car.common.utils;
 
 import java.util.HashMap;
 import java.util.Map;

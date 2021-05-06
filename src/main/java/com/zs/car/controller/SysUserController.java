@@ -2,7 +2,7 @@ package com.zs.car.controller;
 
 import com.zs.car.entity.SysUser;
 import com.zs.car.service.SysUserService;
-import com.zs.car.utils.R;
+import com.zs.car.common.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
