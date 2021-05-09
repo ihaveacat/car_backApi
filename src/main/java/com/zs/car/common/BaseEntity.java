@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -23,12 +24,14 @@ public class BaseEntity implements Serializable {
 
     //设置自动填充策略（插入时自动填充）
     @TableField(fill = FieldFill.INSERT)
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
     private Date createTime;
 
     private String updateUser;
 
     //设置自动填充策略（更新时自动填充）
     @TableField(fill = FieldFill.INSERT_UPDATE)
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
     private Date updateTime;
 
     public Long getId() {

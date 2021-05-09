@@ -3,7 +3,7 @@
 <mapper namespace="com.zs.car.mapper.SysUserMapper">
     <!--登录-->
     <select id="login" resultType="com.zs.car.entity.SysUser">
-        select id,username,password from sys_user where username=#{username} and password=#{password}
+        select id,username,password,head_portrait from sys_user where username=#{username} and password=#{password}
     </select>
 
     <insert id="userRegistration" parameterType="com.zs.car.entity.SysUser">

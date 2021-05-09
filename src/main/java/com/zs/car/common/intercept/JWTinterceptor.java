@@ -5,6 +5,7 @@ import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zs.car.common.utils.JWTUtils;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,10 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * JWT拦截器
+ */
+@Component
 public class JWTinterceptor implements HandlerInterceptor {
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         Map<String, Object> map = new HashMap<>();
         //获取请求头中的token
         String token = request.getHeader("token");

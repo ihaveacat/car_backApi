@@ -7,13 +7,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 @TableName("sys_user")
-public class SysUser implements Serializable {
+public class SysUser extends BaseEntity {
 
     private static final long serialVersionUID=1L;
 
-    //id自增策略
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+//    //id自增策略
+//    @TableId(value = "id", type = IdType.AUTO)
+//    private Long id;
 
     private String username;
 
@@ -23,25 +23,27 @@ public class SysUser implements Serializable {
 
     private Integer level;
 
-    private String createUser;
+    private Integer headPortrait;
 
-    //设置自动填充策略（插入时自动填充）
-    @TableField(fill = FieldFill.INSERT)
-    private Date createTime;
+//    private String createUser;
+//
+//    //设置自动填充策略（插入时自动填充）
+//    @TableField(fill = FieldFill.INSERT)
+//    private Date createTime;
+//
+//    private String updateUser;
+//
+//    //设置自动填充策略（更新时自动填充）
+//    @TableField(fill = FieldFill.INSERT_UPDATE)
+//    private Date updateTime;
 
-    private String updateUser;
-
-    //设置自动填充策略（更新时自动填充）
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Date updateTime;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
 
     public String getUsername() {
         return username;
@@ -75,35 +77,43 @@ public class SysUser implements Serializable {
         this.level = level;
     }
 
-    public String getCreateUser() {
-        return createUser;
+    public Integer getHeadPortrait() {
+        return headPortrait;
     }
 
-    public void setCreateUser(String createUser) {
-        this.createUser = createUser;
+    public void setHeadPortrait(Integer headPortrait) {
+        this.headPortrait = headPortrait;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateUser() {
-        return updateUser;
-    }
-
-    public void setUpdateUser(String updateUser) {
-        this.updateUser = updateUser;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
+    //    public String getCreateUser() {
+//        return createUser;
+//    }
+//
+//    public void setCreateUser(String createUser) {
+//        this.createUser = createUser;
+//    }
+//
+//    public Date getCreateTime() {
+//        return createTime;
+//    }
+//
+//    public void setCreateTime(Date createTime) {
+//        this.createTime = createTime;
+//    }
+//
+//    public String getUpdateUser() {
+//        return updateUser;
+//    }
+//
+//    public void setUpdateUser(String updateUser) {
+//        this.updateUser = updateUser;
+//    }
+//
+//    public Date getUpdateTime() {
+//        return updateTime;
+//    }
+//
+//    public void setUpdateTime(Date updateTime) {
+//        this.updateTime = updateTime;
+//    }
 }

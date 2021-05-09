@@ -1,11 +1,14 @@
 package com.zs.car.common.utils;
 
+import com.alibaba.druid.util.StringUtils;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Map;
 
 public class JWTUtils {
@@ -13,20 +16,20 @@ public class JWTUtils {
     private static final String SIGN = "CAR";
 
     /**
-     * 生成token header.payload.sign
-     * @param map
+     *
+     * @param id
+     * @param username
      * @return
      */
-    public static String getToken(Map<String, String> map) {
-        //指定过期时间
+    public static String getToken(Long id, String username) {
+        //指定过期时间(7天)
         Calendar instance = Calendar.getInstance();
         instance.add(Calendar.DATE, 7);
         //创建jwt builder
         JWTCreator.Builder builder = JWT.create();
         //payload
-        map.forEach((k ,v) -> {
-            builder.withClaim(k, v);
-        });
+        builder.withClaim("id", id);
+        builder.withClaim("username", username);
         //生成token
         String token = builder.withExpiresAt(instance.getTime())
                 .sign(Algorithm.HMAC256(SIGN));
@@ -38,13 +41,20 @@ public class JWTUtils {
      * @param token
      * @return
      */
-    public static DecodedJWT verify(String token) {
+    public static Map<String, Object> verify(String token) {
         try {
             DecodedJWT verify = JWT.require(Algorithm.HMAC256(SIGN)).build().verify(token);
-            return verify;
+            Map<String, Object> map = new HashMap<>();
+            Long id = verify.getClaim("id").asLong();
+            String username = verify.getClaim("username").asString();
+            map.put("id", id);
+            map.put("username", username);
+            return map;
         } catch (Exception e) {
             e.printStackTrace();
+            new CustomException(ResultCodeEnum.TOKEN_ANALYSIS);
         }
         return null;
     }
+
 }

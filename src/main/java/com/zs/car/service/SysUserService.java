@@ -13,14 +13,14 @@ public interface SysUserService extends IService<SysUser> {
      * @param password
      * @return
      */
-    SysUser login(String username, String password);
+    String login(String username, String password);
 
     /**
      * 用户注册
      * @param paramseter
      * @return
      */
-    Map<String, Object> userRegistration(Map<String, Object> paramseter);
+    void userRegistration(Map<String, Object> paramseter);
 
 
 }
