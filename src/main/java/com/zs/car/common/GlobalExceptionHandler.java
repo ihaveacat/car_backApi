@@ -1,9 +1,7 @@
 package com.zs.car.common;
 
-import com.zs.car.common.utils.CustomException;
 import com.zs.car.common.utils.ExceptionUtils;
 import com.zs.car.common.utils.R;
-import com.zs.car.common.utils.ResultCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -24,10 +22,22 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public R error(Exception e) {
-//        e.printStackTrace();
         log.error(ExceptionUtils.getMessage(e));
         return R.error();
 
+    }
+
+
+    /**
+     * 自定义异常
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(AllException.class)
+    @ResponseBody
+    public R error(AllException e) {
+        log.error(ExceptionUtils.getMessage(e));
+        return R.error().message(e.getMessage()).code(e.getCode());
     }
 
     /**
@@ -41,17 +51,4 @@ public class GlobalExceptionHandler {
 //        e.printStackTrace();
 //        return R.setResult(ResultCodeEnum.REGISTER_MOBLE_ERROR);
 //    }
-
-    /**
-     * 自定义异常
-     * @param e
-     * @return
-     */
-    @ExceptionHandler(AllException.class)
-    @ResponseBody
-    public R error(AllException e) {
-//        e.printStackTrace();
-        log.error(ExceptionUtils.getMessage(e));
-        return R.error().message(e.getMessage()).code(e.getCode());
-    }
 }

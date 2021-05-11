@@ -1,5 +1,6 @@
 package com.zs.car.controller;
 
+import com.zs.car.common.utils.R;
 import com.zs.car.entity.FindPerson;
 import com.zs.car.service.FindPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +17,14 @@ public class FindPersonController {
     private FindPersonService findPersonService;
 
     @RequestMapping("pageFindPersonList")
-    public List<FindPerson> pageFindPersonList(@RequestParam("page") Integer page,
-                                               @RequestParam("limit") Integer limit) {
+    public R pageFindPersonList(@RequestParam("page") Integer page,
+                                @RequestParam("limit") Integer limit) {
         try {
             Thread.sleep(1000);
         } catch(Exception e) {
             e.printStackTrace();
         }
-
-        return findPersonService.pageFindPersonList(page, limit);
+        List<FindPerson> personList = findPersonService.pageFindPersonList(page, limit);
+        return R.ok().data("data", personList);
     }
 }
