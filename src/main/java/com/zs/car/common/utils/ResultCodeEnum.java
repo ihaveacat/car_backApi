@@ -30,6 +30,7 @@ public enum ResultCodeEnum {
     LOGIN_PASSWORD_ERROR(false, 28008, "密码不正确"),
     LOGIN_DISABLED_ERROR(false, 28002, "该用户已被禁用"),
     REGISTER_MOBLE_ERROR(false, 28003, "手机号已被注册"),
+    REGISTER_NAME_ERROR(false, 28006, "用户名已存在"),
     LOGIN_AUTH(false, 28004, "需要登录"),
     LOGIN_ACL(false, 28005, "没有权限"),
     MY_VALUE(false, 30000, "我的错误");

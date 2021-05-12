@@ -1,18 +1,18 @@
 package com.zs.car.common.utils;
 
-import com.alibaba.druid.util.StringUtils;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.zs.car.common.AllException;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 public class JWTUtils {
 
+    //加密随机码
     private static final String SIGN = "CAR";
 
     /**
@@ -24,7 +24,9 @@ public class JWTUtils {
     public static String getToken(Long id, String username) {
         //指定过期时间(7天)
         Calendar instance = Calendar.getInstance();
-        instance.add(Calendar.DATE, 7);
+//        instance.add(Calendar.DATE, 7);
+        //【临时修改】
+        instance.add(Calendar.MINUTE, 5);
         //创建jwt builder
         JWTCreator.Builder builder = JWT.create();
         //payload
@@ -51,8 +53,7 @@ public class JWTUtils {
             map.put("username", username);
             return map;
         } catch (Exception e) {
-            e.printStackTrace();
-            new CustomException(ResultCodeEnum.TOKEN_ANALYSIS);
+            new AllException(ResultCodeEnum.TOKEN_ANALYSIS);
         }
         return null;
     }

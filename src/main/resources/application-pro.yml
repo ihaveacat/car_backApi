@@ -1,4 +1,4 @@
-### 普通配置文件 ###
+### 生产配置文件 ###
 #server
 server:
   port: 9999
@@ -47,10 +47,7 @@ spring:
     time-zone: GMT+8
   #配置开发dev/生产pro/测试环境test
   profiles:
-    #开发环境
     active: dev
-    #生产环境
-    #active: pro
 #mybatisPlus配置
 mybatis-plus:
   configuration:
