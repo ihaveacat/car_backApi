@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+/**
+ * 系统用户
+ */
 @CrossOrigin
 @RestController
 @RequestMapping("users")
